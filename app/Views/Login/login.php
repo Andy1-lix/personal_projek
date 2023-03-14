@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?= base_url('css/login.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('css/login/login.css') ?>">
     <title>Document</title>
 </head>
 
@@ -24,7 +24,7 @@
                 </div>
             </form>
         </section>
-        <p>2016 - <a href="https://www.twitter.com/isacfadoni">Isac Fadoni</a></p>
+        <p>Andi Muhammad Fadhil Baso<a href="#"></a></p>
     </div>
     <button id="e1">Login error!</button>
 
