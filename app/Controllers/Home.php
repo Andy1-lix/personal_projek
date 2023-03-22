@@ -12,4 +12,8 @@ class Home extends BaseController
     {
         return view('Login/login');
     }
+    public function keranjang()
+    {
+        return view('halaman_keranjang');
+    }
 }
