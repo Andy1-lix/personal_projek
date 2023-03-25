@@ -6,14 +6,23 @@ class Home extends BaseController
 {
     public function index()
     {
-        return view('welcome_message');
+        $data = [
+            'title' => 'Home | Toko Online'
+        ];
+        return view('welcome_message', $data);
     }
     public function login()
     {
-        return view('Login/login');
+        $data = [
+            'title' => 'Login | Toko Online'
+        ];
+        return view('Login/login', $data);
     }
     public function keranjang()
     {
-        return view('halaman_keranjang');
+        $data = [
+            'title' => 'Keranjang | Toko Online'
+        ];
+        return view('halaman_keranjang', $data);
     }
 }
