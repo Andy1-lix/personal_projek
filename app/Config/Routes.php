@@ -33,6 +33,10 @@ $routes->get('/', 'Home::index');
 $routes->get('/login', 'Home::login');
 $routes->get('/Keranjang', 'Home::Keranjang');
 
+
+// Admin
+
+$routes->get('/admin', 'Admin::index');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
