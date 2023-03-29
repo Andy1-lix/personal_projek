@@ -8,6 +8,6 @@ class Admin extends BaseController
 {
     public function index()
     {
-        return view('admin/template');
+        return view('admin/v_dashboard');
     }
 }
