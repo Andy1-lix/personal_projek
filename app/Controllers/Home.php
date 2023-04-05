@@ -11,6 +11,7 @@ class Home extends BaseController
         ];
         return view('welcome_message', $data);
     }
+
     public function login()
     {
         $data = [
@@ -18,6 +19,7 @@ class Home extends BaseController
         ];
         return view('Login/login', $data);
     }
+    
     public function keranjang()
     {
         $data = [

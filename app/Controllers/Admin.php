@@ -10,4 +10,8 @@ class Admin extends BaseController
     {
         return view('admin/v_dashboard');
     }
+    public function menu()
+    {
+        return view('admin/sidebar/menu');
+    }
 }

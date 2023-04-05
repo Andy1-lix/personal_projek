@@ -37,6 +37,7 @@ $routes->get('/Keranjang', 'Home::Keranjang');
 // Admin
 
 $routes->get('/admin', 'Admin::index');
+$routes->get('/admin/menu', 'Admin::menu');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

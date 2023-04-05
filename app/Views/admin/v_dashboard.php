@@ -1,5 +1,4 @@
 <?= $this->extend('admin/layout/v_template'); ?>
-
 <?= $this->section('content'); ?>
 <!-- Main content -->
 <section class="content">
@@ -11,7 +10,6 @@
             <div class="small-box bg-info">
               <div class="inner">
                 <h3>150</h3>
-
                 <p>New Orders</p>
               </div>
               <div class="icon">
