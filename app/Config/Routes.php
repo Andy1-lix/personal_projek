@@ -38,6 +38,9 @@ $routes->get('/Keranjang', 'Home::Keranjang');
 
 $routes->get('/admin', 'Admin::index');
 $routes->get('/admin/menu', 'Admin::menu');
+$routes->get('/admin/menu1', 'Admin::menu1');
+$routes->post('/products/delete/(:num)', 'Admin::deleteProduct/$1');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
