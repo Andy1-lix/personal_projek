@@ -2,7 +2,7 @@
 
 <?= $this->section('content'); ?>
 <!-- /.row -->
-<div class="container-fluid">
+<div class="container-fluid ">
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -26,8 +26,8 @@
                     </div>
                 </div>
                 <!-- /.card-header -->
-                <div class="card-body table-responsive " style="height: 200px; text-align:center;">
-                    <table class="table table-head-fixed text-nowrap table-bordered">
+                <div class="card-body table-responsive " style=" text-align:center;">
+                    <table class="table table-head-fixed text-nowrap table-bordered" id="example2">
                         <thead>
                             <tr>
                                 <th>No</th>

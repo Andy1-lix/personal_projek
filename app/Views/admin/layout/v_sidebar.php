@@ -580,8 +580,13 @@
         </li>
         <li class="nav-item">
           <a href="<?= base_url('admin/menu1') ?>" class="nav-link">
-            <i class="nav-icon fas fa-copy"></i>
-            <p class="text">Menu1</p>
+            <i class="nav-icon fas fa-book"></i>
+            <p class="text">Produk</p>
+          </a>
+        <li class="nav-item">
+          <a href="<?= base_url('admin/cashier') ?>" class="nav-link">
+            <i class="nav-icon fas fa-book"></i>
+            <p class="text">Kasir</p>
           </a>
         </li>
         <!-- Sampe sini -->

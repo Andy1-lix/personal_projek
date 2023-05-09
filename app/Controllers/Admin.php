@@ -18,6 +18,7 @@ class Admin extends BaseController
     {
         $data = [
             'title' => 'Dashboard | Admin',
+            'Judul' => 'Dashboard ',
             'menu' => 'MasterData',
 
         ];
@@ -42,6 +43,7 @@ class Admin extends BaseController
 
         $data = [
             'title' => 'Menu | Admin',
+            'judul' => 'Menu Produk',
             'menu' => 'MasterData',
             'menu1' => $this->MenuModel->findAll()
         ];
@@ -52,6 +54,7 @@ class Admin extends BaseController
     {
         $data = [
             'title' => 'Menu | Admin',
+            'judul' => 'Tambah Menu',
             'menu' => 'MasterData',
             'validation' => \Config\Services::validation()
 
