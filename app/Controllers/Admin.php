@@ -19,7 +19,6 @@ class Admin extends BaseController
         $data = [
             'title' => 'Dashboard | Admin',
             'Judul' => 'Dashboard ',
-            'bread' => 'Dashboard',
             'menu' => 'MasterData',
 
         ];
