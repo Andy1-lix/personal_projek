@@ -1,9 +1,5 @@
 <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-        <b>Version</b> 3.2.0
-    </div>
+    <p id="copyright"></p>
 </footer>
 
 <!-- Control Sidebar -->
@@ -86,7 +82,20 @@
     });
 </script>
 
+
+
 <!-- Untuk DataTable -->
+
+<!-- Untuk Copy Right -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var currentYear = new Date().getFullYear();
+        var copyrightElement = document.getElementById("copyright");
+        copyrightElement.innerHTML = "&copy; " + currentYear + " Nanda Salad And Bakery";
+    });
+</script>
+<!-- Untuk Copy Right -->
+
 
 
 <!-- <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/js/adminlte.min.js"></script> -->
