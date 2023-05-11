@@ -51,7 +51,7 @@
                                     <td><?= $menu['stock'] ?></td>
                                     <td>
                                         <form action="/products/delete/<?= $menu['id_produk'] ?>" method="POST">
-                                            <a href="#" class="btn btn-warning">Edit</a>
+                                            <a href="/admin/menu/edit/<?= $menu['id_produk']?>" class="btn btn-warning">Edit</a>
                                             <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus produk ini?')">Hapus</button>
                                         </form>
                                     </td>
