@@ -10,7 +10,7 @@
 
                 <div class="card-tools">
 
-          
+
                     <a href="<?= base_url('products/create') ?>" class="btn btn-flat btn-primary btn-xm">
                         <i class="fas fa-plus"></i> Tambah
                     </a>

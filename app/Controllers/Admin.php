@@ -101,7 +101,7 @@ class Admin extends BaseController
             'menuData' => $this->MenuModel->find($id_produk)
         ];
 
-        return view('admin/sidebar/menu/v_editMenu', $data);
+        return view('admin/sidebar/product/v_editProduk', $data);
     }
 
     public function update($id_produk)
