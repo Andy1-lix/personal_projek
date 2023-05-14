@@ -39,7 +39,14 @@ $routes->get('/Keranjang', 'Home::Keranjang');
 $routes->get('/admin', 'Admin::index');
 $routes->get('/admin/menu', 'Admin::menu');
 $routes->get('/admin/menu1', 'Admin::menu1');
+$routes->get('/admin/kasir', 'Kasir::index');
+$routes->get('/products/create', 'Admin::tambahMenu');
+$routes->post('/products/store', 'Admin::store');
 $routes->post('/products/delete/(:num)', 'Admin::deleteProduct/$1');
+$routes->get('/admin/menu/edit/(:num)', 'Admin::edit/$1');
+$routes->post('/admin/menu/update/(:num)', 'Admin::update/$1');
+
+
 
 /*
  * --------------------------------------------------------------------
