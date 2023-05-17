@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\MenuModel;
+use App\Models\KategoriModel;
 
 class Admin extends BaseController
 {
@@ -13,6 +14,7 @@ class Admin extends BaseController
     {
 
         $this->MenuModel = new MenuModel();
+        $this->KategoriModel = new KategoriModel();
     }
     public function index()
     {
@@ -45,6 +47,7 @@ class Admin extends BaseController
             'title' => 'Menu | Admin',
             'judul' => 'Menu Produk',
             'menu' => 'MasterData',
+            'kategori' => $this->KategoriModel->findAll(),
             'menu1' => $this->MenuModel->findAll()
         ];
         return view('admin/sidebar/menu1', $data);
@@ -55,13 +58,15 @@ class Admin extends BaseController
         $data = [
             'title' => 'Menu | Admin',
             'judul' => 'Tambah Menu',
-            'bread' => 'Tambah',
             'menu' => 'MasterData',
+            'kategori' => $this->KategoriModel->findAll(),
+            'menu1' => $this->MenuModel->findAll(),
             'validation' => \Config\Services::validation()
 
         ];
         return view('admin/sidebar/product/v_tambahProduk', $data);
     }
+
 
     public function store()
     {
@@ -69,7 +74,8 @@ class Admin extends BaseController
             'nama_produk' => 'required',
             'harga' => 'required|numeric',
             'gambar' => 'uploaded[gambar]|max_size[gambar,1024]|is_image[gambar]',
-            'stock' => 'required|numeric'
+            'stock' => 'required|numeric',
+            'id_kategori' => 'required'
         ])) {
             $validation = \Config\Services::validation();
             return redirect()->to('/products/create')->withInput()->with('validation', $validation);
@@ -80,12 +86,15 @@ class Admin extends BaseController
                 'nama_produk' => $this->request->getVar('nama_produk'),
                 'harga' => $this->request->getVar('harga'),
                 'gambar' => $gambar->getName(),
-                'stock' => $this->request->getVar('stock')
+                'stock' => $this->request->getVar('stock'),
+                'id_kategori' => $this->request->getVar('id_kategori')
             ];
             $this->MenuModel->save($data);
-            return redirect()->to('/admin/menu1');
+            return redirect()->to('/admin/menu1')->with('success', 'Product created successfully.');
         }
     }
+
+
 
 
 
@@ -106,39 +115,47 @@ class Admin extends BaseController
 
     public function update($id_produk)
     {
+        $product = $this->model->find($id_produk);
+        if (empty($product)) {
+            return redirect()->to('/products')->with('error', 'Product not found.');
+        }
+
         if (!$this->validate([
             'nama_produk' => 'required',
             'harga' => 'required|numeric',
-            'gambar' => 'max_size[gambar,1024]|is_image[gambar]',
-            'stock' => 'required|numeric'
+            'gambar' => 'uploaded[gambar]|max_size[gambar,1024]|is_image[gambar]',
+            'stock' => 'required|numeric',
+            'id_kategori' => 'required'
         ])) {
             $validation = \Config\Services::validation();
-            return redirect()->back()->withInput()->with('validation', $validation);
+            return redirect()->to('/products/edit/' . $id_produk)->withInput()->with('validation', $validation);
         } else {
             $gambar = $this->request->getFile('gambar');
-
+            $gambar->move('uploads');
             $data = [
                 'nama_produk' => $this->request->getVar('nama_produk'),
                 'harga' => $this->request->getVar('harga'),
-                'stock' => $this->request->getVar('stock')
+                'gambar' => $gambar->getName(),
+                'stock' => $this->request->getVar('stock'),
+                'id_kategori' => $this->request->getVar('id_kategori')
             ];
-
-            if ($gambar->isValid() && !$gambar->hasMoved()) {
-                $gambar->move('uploads');
-                $data['gambar'] = $gambar->getName();
-            }
-
             $this->MenuModel->update($id_produk, $data);
-
-            return redirect()->to('/admin/menu1');
+            return redirect()->to('/products')->with('success', 'Product updated successfully.');
         }
     }
 
 
-
     public function deleteProduct($id_produk)
     {
-        $this->MenuModel->Delete($id_produk);
-        return redirect()->to('/admin/menu1');
+        $product = $this->MenuModel->find($id_produk);
+
+        if (empty($product)) {
+            return redirect()->to('/admin/menu1')->with('error', 'Product not found.');
+        }
+        $this->MenuModel->delete($id_produk);
+        return redirect()->to('/admin/menu1')->with('success', 'Product deleted successfully.');
     }
+    // $this->MenuModel->Delete($id_produk);
+    // return redirect()->to('/admin/menu1');
+
 }

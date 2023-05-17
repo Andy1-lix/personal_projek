@@ -48,6 +48,15 @@
                                     </div>
                                 <?php endif; ?>
                             </div>
+                            <div class="form-group">
+                                <label for="id_kategori">Kategori</label>
+                                <select name="id_kategori" class="form-control" id="kategori" required>
+                                    <option value="">Pilih Kategori</option>
+                                    <?php foreach ($kategori  as $k) : ?>
+                                        <option value="<?= $k['id_kategori']; ?>"><?= $k['nama_kategori']; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
                             <div class="mb-3">
                                 <label for="stock" class="form-label">Stock</label>
                                 <input type="text" class="form-control <?= ($validation->hasError('stock')) ? 'is-invalid' : '' ?>" id="stock" name="stock" value="<?= old('stock') ?>">

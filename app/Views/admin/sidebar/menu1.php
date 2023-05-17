@@ -25,9 +25,10 @@
                             <th>Nama Produk</th>
                             <th>Harga</th>
                             <th>Gambar</th>
+                            <th>Kategori</th>
                             <th>Stok</th>
                             <th>Aksi</th>
-
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -39,6 +40,13 @@
                                 <td><?= $menu['nama_produk'] ?></td>
                                 <td>Rp<?= $menu['harga'] ?></td>
                                 <td><?= $menu['gambar'] ?></td>
+                                <td>
+                                    <?php foreach ($kategori as $k) : ?>
+                                        <?php if ($k['id_kategori'] == $menu['id_kategori']) : ?>
+                                            <?= $k['nama_kategori'] ?>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                </td>
                                 <td><?= $menu['stock'] ?></td>
                                 <td>
                                     <form action="/products/delete/<?= $menu['id_produk'] ?>" method="POST">

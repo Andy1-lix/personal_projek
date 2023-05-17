@@ -1,9 +1,5 @@
 <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-        <b>Version</b> 3.2.0
-    </div>
+<p></p><p id="footer"></p>
 </footer>
 
 <!-- Control Sidebar -->
@@ -68,25 +64,30 @@
 
 <script>
     $(function() {
-        $("#table1").DataTable({
+        $("#example1").DataTable({
             "responsive": true,
             "lengthChange": false,
             "autoWidth": false,
             "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
         }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-        $('#table2').DataTable({
+        $('#example2').DataTable({
             "paging": true,
             "lengthChange": false,
             "searching": false,
             "ordering": true,
             "info": true,
-            "autoWidth": false,
+            "autoWidth": true,
             "responsive": true,
-        });
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     });
 </script>
 
 <!-- Untuk DataTable -->
+
+<script>
+    document.getElementById("footer").innerHTML = new Date().getFullYear();
+</script>
 
 
 <!-- <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/js/adminlte.min.js"></script> -->
