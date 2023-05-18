@@ -19,7 +19,7 @@
     </div>
 
     <!-- SidebarSearch Form -->
-    <div class="form-inline">
+    <!-- <div class="form-inline">
       <div class="input-group" data-widget="sidebar-search">
         <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
         <div class="input-group-append">
@@ -28,14 +28,14 @@
           </button>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- Sidebar Menu -->
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-        <li class="nav-item menu-open">
+        <!-- <li class="nav-item menu-open">
           <a href="#" class="nav-link active">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
@@ -255,8 +255,8 @@
               </a>
             </li>
           </ul>
-        </li>
-        <li class="nav-item">
+        </li> -->
+        <!-- <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-table"></i>
             <p>
@@ -284,8 +284,8 @@
               </a>
             </li>
           </ul>
-        </li>
-        <li class="nav-header">EXAMPLES</li>
+        </li> -->
+        <!-- <li class="nav-header">EXAMPLES</li>
         <li class="nav-item">
           <a href="pages/calendar.html" class="nav-link">
             <i class="nav-icon far fa-calendar-alt"></i>
@@ -562,7 +562,7 @@
               </a>
             </li>
           </ul>
-        </li>
+        </li> -->
   
         <!-- Nanti ngoding di sini -->
         <li class="nav-header">Master Data</li>
