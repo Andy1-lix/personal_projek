@@ -41,6 +41,7 @@ $routes->get('/admin/menu', 'Admin::menu');
 $routes->get('/admin/menu1', 'Admin::menu1');
 // kasir
 $routes->get('/admin/kasir', 'Kasir::index');
+$routes->post('kasir/checkout', 'Kasir::checkout');
 // transaksi
 $routes->get('/admin/transaksi', 'Transaksi::index');
 //laporan
