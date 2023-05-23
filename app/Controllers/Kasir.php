@@ -38,7 +38,7 @@ class Kasir extends BaseController
         // Logika checkout
         $total = 0;
         foreach ($productIds as $productId) {
-            $product = $this->model->find($productId);
+            $product = $this->model->findAll($productId);
             if ($product) {
                 // Mengurangi stok produk
                 $product['stock'] -= 1;
