@@ -148,6 +148,9 @@ class Admin extends BaseController
     public function deleteProduct($id_produk)
     {
         $product = $this->MenuModel->find($id_produk);
+        $gambar = $product['gambar'];
+        unlink('uploads/' . $gambar);
+        
 
         if (empty($product)) {
             return redirect()->to('/admin/menu1')->with('error', 'Product not found.');
