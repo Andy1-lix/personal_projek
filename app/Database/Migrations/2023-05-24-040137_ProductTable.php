@@ -49,7 +49,7 @@ class ProductsTable extends Migration
         ]);
 
         $this->forge->addKey('id_produk', true);
-        $this->forge->addForeignKey('id_kategori', 'kategori', 'id_kategori', 'CASCADE', 'CASCADE');
+        $this->forge->addForeignKey('id_kategori', 'kategori', 'id_kategori');
         $this->forge->createTable('products');
     }
 

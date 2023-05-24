@@ -21,7 +21,7 @@ class Kasir extends BaseController
             'Judul' => 'Kasir ',
             'menu' => 'MasterData',
             'kategori' => $this->KategoriModel->findAll(),
-            'menu1' => $this->MenuModel->find(),
+            'menu1' => $this->MenuModel->findAll(),
             'validation' => \Config\Services::validation()
 
         ];

@@ -2,51 +2,62 @@
 
 <?= $this->section('content'); ?>
 <div class="container">
-    <h1>Sistem Kasir</h1>
-    <?php if (session()->getFlashdata('success')) : ?>
-        <div class="alert alert-success" role="alert">
-            <?= session()->getFlashdata('success') ?>
-        </div>
-    <?php endif; ?>
-
-    <?php foreach ($menu1 as $key => $product) : ?>
-        <div class="input-group mb-3">
-            <label for="id_produk" class="input-group-text">Produk</label>
-            <select name="id_produk" class="form-select" id="Produk" required>
-                <option value="<?= $product['id_produk'] ?>">
-                    <?= $product['nama_produk'] ?>
-                </option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="quantity">Jumlah</label>
-            <input type="number" name="quantity" id="quantity" class="form-control" min="1" value="1">
-        </div>
-        <div class="form-group">
-            <label for="harga">Harga</label>
-            <input type="text" id="harga" class="form-control" readonly>
-        </div>
-        <div class="form-group">
-            <label for="stock">Stok</label>
-            <input type="text" id="stock" class="form-control" readonly>
-        </div>
-        <div class="form-group">
-            <label for="total">Total Harga</label>
-            <input type="text" id="total" class="form-control" readonly>
-        </div>
-
-    <?php endforeach; ?>
+    <div class="card">
+        <div class="card-body">
+            <h1>Sistem Kasir</h1>
+            <?php if (session()->getFlashdata('success')) : ?>
+                <div class="alert alert-success" role="alert">
+                    <?= session()->getFlashdata('success') ?>
+                </div>
+            <?php endif; ?>
 
 
-    <form action="/kasir/checkout" method="post">
-        <button type="submit" class="btn btn-primary">Checkout</button>
-    </form>
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <select name="id_produk" class="custom-select" id="Produk" required>
+                        <?php foreach ($menu1 as  $product) : ?>
+                            <option value="<?= $product['id_produk'] ?>"><?= $product['nama_produk'] ?></option>
+                    </select>
+                <?php endforeach; ?>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="quantity">Jumlah</label>
+                <input type="number" name="quantity" id="quantity" class="form-control" min="1" value="1">
+            </div>
+
+            <div class="form-group">
+                <label for="harga">Harga</label>
+                <?php foreach ($menu1 as $harga) : ?>
+                    <input type="number" name="harga" id="harga" class="form-control" value="<?= $harga['harga'] ?>" readonly>
+                <?php endforeach; ?>
+            </div>
+            <div class="form-group">
+                <label for="stock">Stok</label>
+                <?php foreach ($menu1 as $stock) : ?>
+                    <input type="number" name="stock" id="stock" class="form-control" value="<?= $stock['stock'] ?>" readonly>
+                <?php endforeach; ?>
+            </div>
+            <div class="form-group">
+                    <label for="total">Total Harga</label>
+                    <input type="number" name="total" id="total" class="form-control" value="total" readonly>
+            </div>
+
+
+
+
+            <form action="/kasir/checkout" method="post">
+                <button type="submit" class="btn btn-primary">Checkout</button>
+            </form>
+        </div>
+    </div>
+
 </div>
 
 <script>
     // Fungsi untuk mengupdate harga, stok, dan total saat memilih menu
     function updateProductInfo() {
-        var selectedProduct = $('#product_ids').val();
+        var selectedProduct = $('#id_produk').val();
         if (selectedProduct.length > 0) {
             var product = <?= json_encode($product) ?>;
             var selectedProductId = selectedProduct[0];
@@ -73,7 +84,7 @@
     }
 
     // Panggil fungsi updateProductInfo saat memilih menu
-    $('#product_ids').on('change', function() {
+    $('#id_produk').on('change', function() {
         updateProductInfo();
     });
 
